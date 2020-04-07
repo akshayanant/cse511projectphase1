@@ -59,23 +59,27 @@ object SparkSQLExample {
     val queryParam = queryParams.split(" ")
     if (queryName.equalsIgnoreCase("RangeQuery"))
     {
+      print("-------RangeQuery------")
       if(queryParam.length!=2) throw new ArrayIndexOutOfBoundsException("[CSE512] Query "+queryName+" needs 2 parameters but you entered "+queryParam.length)
       queryResult = SpatialQuery.runRangeQuery(spark, queryParam(0), queryParam(1))
     }
     else if (queryName.equalsIgnoreCase("RangeJoinQuery"))
     {
+      print("-------RangeJoinQuery------")
 
       if(queryParam.length!=2) throw new ArrayIndexOutOfBoundsException("[CSE512] Query "+queryName+" needs 2 parameters but you entered "+queryParam.length)
       queryResult = SpatialQuery.runRangeJoinQuery(spark, queryParam(0), queryParam(1))
     }
     else if (queryName.equalsIgnoreCase("DistanceQuery"))
     {
+      print("-------DistanceQuery------")
 
       if(queryParam.length!=3) throw new ArrayIndexOutOfBoundsException("[CSE512] Query "+queryName+" needs 3 parameters but you entered "+queryParam.length)
       queryResult = SpatialQuery.runDistanceQuery(spark, queryParam(0), queryParam(1), queryParam(2))
     }
     else if (queryName.equalsIgnoreCase("DistanceJoinQuery"))
     {
+      print("-------DistanceJoinQuery------")
       if(queryParam.length!=3) throw new ArrayIndexOutOfBoundsException("[CSE512] Query "+queryName+" needs 3 parameters but you entered "+queryParam.length)
       queryResult = SpatialQuery.runDistanceJoinQuery(spark, queryParam(0), queryParam(1), queryParam(2))
     }
